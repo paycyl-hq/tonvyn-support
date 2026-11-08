@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Tonvyn Personal Color &amp; Style Studio</title>
+  <style>
+    :root {
+      --bg: #0C0A09;
+      --card: #1C1917;
+      --border: #292524;
+      --text: #F5F5F4;
+      --text-muted: #A8A29E;
+      --accent: #E5C378;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    h1 {
+      color: var(--accent);
+      font-size: 28px;
+      margin-top: 0;
+      letter-spacing: -0.5px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    p, li {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    strong {
+      color: var(--text);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(229, 195, 120, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .callout {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #78716C;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">Apple App Store Guideline 5.1.1, 5.1.2(i) &amp; 2.5.13 Compliant</div>
+    <h1>Privacy Policy</h1>
+    <p><em>Effective Date: November 8, 2026</em></p>
+
+    <div class="callout">
+      <strong>Zero Face Retention &amp; Zero Account Registration Guarantee:</strong> Tonvyn requires no user account, email address, name, or phone number. When you explicitly opt into AI analysis, face calibration photos are processed strictly in volatile memory for the duration of inference (<strong>0 seconds server retention</strong>) and are <strong>never stored on server disks, logged, or used for AI model training</strong>.
+    </div>
+
+    <h2>1. Facial &amp; Biometric Colorimetry Data Disclosure (Apple Guideline 2.5.13)</h2>
+    <p>In strict compliance with Apple App Store Review Guideline 2.5.13, Tonvyn provides the following explicit disclosures regarding facial image and skin/hair/iris color data:</p>
+    <ul>
+      <li><strong>What Face Data We Access:</strong> Tonvyn does <strong>not</strong> use Apple TrueDepth camera APIs, ARKit face meshes, Face ID data, or biometric facial recognition identifiers. On-device, Tonvyn samples standard 2D RGB color pixels (`CIELAB L*a*b*` and `ITA°` values) from three user-positioned pins (cheek, iris rim, and natural hair root). If you explicitly opt into AI analysis via the in-app consent modal, a downscaled (`&le;1280px`) 2D selfie photograph and those numeric `CIELAB` color coordinates are transmitted over TLS 1.3.</li>
+      <li><strong>Purpose of Processing:</strong> Face photos and sampled `CIELAB` coordinates are used <strong>solely</strong> to classify your 12-season personal color palette, Sister Season bridge shades, and undertone/contrast harmony. They are never used for identity verification, authentication, profiling, or advertising.</li>
+      <li><strong>Third-Party Sharing &amp; Storage:</strong> Only after your explicit in-app opt-in (`AIConsentModal`), the downscaled selfie image is transmitted through our <strong>Cloudflare, Inc.</strong> edge gateway to <strong>Google LLC (Paid Commercial Google Gemini API)</strong> for real-time seasonal color inference. Neither Cloudflare, Inc. nor Google LLC stores, logs, or retains your face photo on disk (<code>0 seconds</code> retention), and Google LLC is contractually prohibited from using commercial API payloads to train or improve any AI models.</li>
+      <li><strong>Retention Period:</strong> Server-side retention of face photos is <strong>0 seconds</strong> (discarded from volatile RAM immediately after returning the JSON color classification). Temporary on-device calibration images are deleted from device cache immediately after the Season Reveal step completes. Your resulting seasonal palette profile (`CIELAB` numbers and season ID) is stored locally in your device's SQLite database until you delete the app or tap <strong>Delete All Face &amp; Closet Data</strong> in Settings.</li>
+    </ul>
+
+    <h2>2. Other Data Processed (Aligned with iOS Privacy Manifest)</h2>
+    <p>Tonvyn does not link any data to your personal identity and performs <strong>zero cross-app tracking (`NSPrivacyTracking = false`)</strong>:</p>
+    <ul>
+      <li><strong>Garment &amp; Outfit Photos (`Photos or Videos`):</strong> Photos of clothing hangers, outfits, or screenshots you select are transmitted to our edge gateway (Google Gemini Commercial API via Cloudflare Workers) only when you trigger an AI garment scan. Saved capsule wardrobe photos remain strictly on your device in local storage.</li>
+      <li><strong>Anonymous Hardware Quota Check (`Apple DeviceCheck`):</strong> To provide 1 complimentary AI season analysis and 1 complimentary AI garment scan per physical device without requiring sign-up, our Cloudflare Worker queries and updates Apple's official 2-bit `DeviceCheck` state. No hardware serial numbers or Apple IDs are exposed.</li>
+      <li><strong>Subscription Receipts (`Purchase History`):</strong> Anonymous App Store transaction receipts are verified via <strong>RevenueCat, Inc.</strong> and Apple StoreKit 2 solely to unlock Tonvyn Pro features across your device.</li>
+      <li><strong>Anonymous Diagnostics &amp; Product Interaction (`Crash Data` &amp; `Analytics`):</strong> When enabled in production, <strong>Sentry</strong> (`sendDefaultPii: false`, with automated base64/file-path scrubbing) and <strong>PostHog</strong> collect anonymous crash stack traces and aggregate funnel events (such as screen views or scan mode counts) strictly for stability and app functionality. Raw images, face coordinates, and auth tokens are scrubbed before any event leaves the device.</li>
+    </ul>
+
+    <h2>3. Explicit Consent &amp; 100% Offline Manual Mode (Apple Guideline 5.1.2(i))</h2>
+    <p>Before any selfie or garment image ever leaves your device, Tonvyn presents a dedicated <strong>AI Biometric &amp; Photo Consent Modal</strong> naming Google LLC and Cloudflare, Inc. If you choose <strong>Decline &amp; Pick Season Manually</strong>, zero photos or network requests are transmitted, and you receive full offline access to the 12-season canonical color studio and 10Hz live camera crosshair matcher.</p>
+
+    <h2>4. On-Device Storage, iCloud Backup Exclusion &amp; 1-Tap Data Wipe</h2>
+    <ul>
+      <li><strong>iCloud Backup Protection:</strong> All saved capsule garment photos reside in your local application sandbox (`Documents/scans/`) with <code>NSURLIsExcludedFromBackupKey = true</code> so your personal wardrobe photos never bloat or upload to iCloud backups.</li>
+      <li><strong>1-Tap Complete Data Deletion:</strong> Navigating to <strong>My Capsule &rarr; Studio Settings &amp; Privacy &rarr; Delete All Face &amp; Closet Data</strong> immediately and irreversibly purges all SQLite profile and closet tables (`WAL` checkpoint + `VACUUM`), deletes all local wardrobe photos, clears Keychain session tokens, and resets analytics identifiers.</li>
+    </ul>
+
+    <h2>5. Contact, Support &amp; Data Controller</h2>
+    <p>If you have any questions about privacy, data handling, or your rights under GDPR, CCPA, or KVKK, please contact us via our official support email:</p>
+    <ul>
+      <li><strong>Official Support Email:</strong> <a href="mailto:abonnenapp@gmail.com">abonnenapp@gmail.com</a></li>
+      <li><strong>Terms of Use (EULA):</strong> <a href="https://paycyl-hq.github.io/tonvyn-support/terms.html" target="_blank" rel="noopener noreferrer">https://paycyl-hq.github.io/tonvyn-support/terms.html</a></li>
+    </ul>
+
+    <div class="footer">
+      Tonvyn &bull; Personal Color Analysis, Live Rack Harmony &amp; Capsule Fit AI Studio
+    </div>
+  </div>
+</body>
+</html>
